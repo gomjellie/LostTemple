@@ -53,13 +53,13 @@ sudo pip3 install lost_temple
 
 ```json
 {
-    source: {
+    "source": {
         "./sources",
     },
-    header: {
+    "header": {
         "./headers/",
     },
-    target: {
+    "target": {
         "./build",
     }
 }
