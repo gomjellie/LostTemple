@@ -11,10 +11,9 @@ LostTemple 은 C언어를 파이썬 처럼 쓰게 도와주는 트랜스파일�
 
 위의 사진처럼 다른언어에서도 파이썬처럼 { } 와 ; 없이 코드를 짜고 싶어집니다.
 
-LostTemple 을 사용하여 트랜스파일하면
 
 ```c
-import <stdio.h>
+#include <stdio.h>
 
 int main():
     printf("hello world")
@@ -23,8 +22,7 @@ int main():
 
 ```
 
-위의 코드를 아래의
-
+LostTemple 을 사용하여 트랜스파일하면 아래와 같이 변합니다!
       ↓ ↓ ↓ ↓ ↓ ↓
 
 ```
@@ -71,7 +69,7 @@ sudo pip3 install lost_temple
 
 ```sh
 
-temple
+lost-temple
 
 ```
 
@@ -79,7 +77,7 @@ temple
 
 ```sh
 
-temple --source="./sources" --header="./headers" target="./build"
+lost-temple --source="./sources" --header="./headers" target="./build"
 
 ```
 

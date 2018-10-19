@@ -17,7 +17,7 @@ def single_print(string):
     """
     Example Usage
 
-        >>> temple single_print --string="hi there~"
+        >>> lost-temple single_print --string="hi there~"
 
     :return:
     """
@@ -30,9 +30,9 @@ def multiple_print(string):
     """
     Example Usage
 
-        >>> temple multiple_print --string="hello" --string="world"
+        >>> lost-temple multiple_print --string="hello" --string="world"
 
-        >>> temple multi_print --string="hello" -sworld
+        >>> lost-temple multi_print --string="hello" -sworld
 
     :param string:
     :return:
@@ -47,7 +47,7 @@ def login(id, password):
     """
     Example Usage
 
-        >>> temple login --id='adam' --password='smith'
+        >>> lost-temple login --id='adam' --password='smith'
 
     :param id:
     :param password:
