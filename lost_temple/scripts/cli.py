@@ -6,57 +6,16 @@ import click
 import lost_temple
 
 
-@click.group()
-def main():
-    pass
-
-
 @click.command()
-@click.option("--string", default='Hello World')
-def single_print(string):
+@click.option("--source", "-s", default='./sources', multiple=True, help="path where .c files exits, default='./src'")
+@click.option("--header", "-h", default="./headers", multiple=True, help="where .h files exits, default='./headers'")
+@click.option("--target", "-t", default="./build", multiple=False, help="transpiled results will go here, default='./build'")
+def transpile(source, header, target):
     """
     Example Usage
 
-        >>> lost-temple single_print --string="hi there~"
+        >>> lost-temple --source="./sources" --header="./headers" target="./build"
 
     :return:
     """
-    lost_temple.print_string(string)
-
-
-@click.command()
-@click.option("--string", "-s", default='Hello World', type=str, multiple=True)
-def multiple_print(string):
-    """
-    Example Usage
-
-        >>> lost-temple multiple_print --string="hello" --string="world"
-
-        >>> lost-temple multi_print --string="hello" -sworld
-
-    :param string:
-    :return:
-    """
-    lost_temple.print_string(" ".join(string))
-
-
-@click.command()
-@click.option("--id", type=str, multiple=False)
-@click.option("--password", type=str, multiple=False)
-def login(id, password):
-    """
-    Example Usage
-
-        >>> lost-temple login --id='adam' --password='smith'
-
-    :param id:
-    :param password:
-    :return:
-    """
-    res = lost_temple.login(id, password)
-    click.echo("{}".format(res))
-
-
-main.add_command(single_print)
-main.add_command(multiple_print)
-main.add_command(login)
+    lost_temple.transpile(source, header, target)
