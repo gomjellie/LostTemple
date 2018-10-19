@@ -29,7 +29,7 @@ setup(
     test_suite='nose.collector',
     entry_points='''
         [console_scripts]
-        lost-temple=lost_temple.scripts.cli:main
+        lost-temple=lost_temple.scripts.cli:transpile
     ''',
     classifiers=[
         'Development Status :: 5 - Production/Stable',

@@ -1,0 +1,11 @@
+{
+    "source": {
+        "./sources"
+    },
+    "header": {
+        "./headers/"
+    },
+    "target": {
+        "./build"
+    }
+}
