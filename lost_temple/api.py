@@ -1,6 +1,7 @@
 """
     API HERE
 """
+from .utils import read_entry
 
 def transpile(header_path="./headers", source_path="./sources", target_path="./build"):
     """
@@ -33,6 +34,8 @@ def transpile(header_path="./headers", source_path="./sources", target_path="./b
     """
     header_res = transpile_header(header_path, target_path)
     source_res = transpile_source(source_path, target_path)
+
+    print(read_entry())
 
     return {
         "header_res": header_res,
