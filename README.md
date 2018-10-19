@@ -5,7 +5,7 @@
 
 LostTemple 은 C언어를 파이썬 처럼 쓰게 도와주는 트랜스파일러 입니다.
 
-![바람직한 코딩스타일 예제](DOCS/img/brace_style.jpeg)
+![바람직한 코딩스타일 예제](DOCS/img/brace_style.png)
 
 파이썬을 써본 사람이라면 누구나
 
