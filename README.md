@@ -54,13 +54,8 @@ sudo pip3 install lost_temple
 아래와 같은 구조를 가져야 합니다.
 ```json
 {
-    "source": [
-        "./sources",
-        "./sources2"
-    ],
-    "header": [
-        "./headers",
-        "./headers2"
+    "entry": [
+        "./"
     ],
     "target": [
         "./build"
@@ -82,7 +77,9 @@ lost-temple
 
 ```sh
 
-lost-temple -o ./build   ./sources ./headers
+# ./build에 .(현재 디렉토리) 부터 탐색한 .hat, .cat 파일들을 트랜스파일합니다.
+
+lost-temple -o ./build  .
 
 ```
 
@@ -96,7 +93,6 @@ lost-temple -o ./build   ./sources ./headers
 │   ├── protocol.hat
 │   └── sensor.hat
 ├── sources
-│   ├── actuator.cat
 │   ├── protocol.cat
 │   ├── sensor.cat
 │   └── subdir
@@ -118,12 +114,11 @@ lost-temple -o ./build   ./sources ./headers
 │   │   ├── protocol.h
 │   │   └── sensor.h
 │   ├── sources
-│   │   ├── actuator.c
 │   │   ├── protocol.c
 │   │   ├── sensor.c
 │   │   └── subdir
 │   │       ├── deep_directory
-│   │       │   └── deep.c
+│   │       │   └── deep.h
 │   │       └── sub.c
 │   └── sources2
 │       └── actuator.c
@@ -133,12 +128,11 @@ lost-temple -o ./build   ./sources ./headers
 │   ├── protocol.hat
 │   └── sensor.hat
 ├── sources
-│   ├── actuator.cat
 │   ├── protocol.cat
 │   ├── sensor.cat
 │   └── subdir
 │       ├── deep_directory
-│       │   └── deep.hat
+│       │   └── deep.cat
 │       └── sub.cat
 └── sources2
     └── actuator.cat

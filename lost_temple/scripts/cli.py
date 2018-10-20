@@ -7,19 +7,18 @@ import lost_temple
 
 
 @click.command()
-@click.argument("source", nargs=1, default="./", type=click.Path(exists=True))
-@click.argument("header", nargs=1, default="./", type=click.Path(exists=True))
+@click.argument("entry", nargs=1, default="./", type=click.Path(exists=True))
 @click.option('--target', '-o', default='./build', help='Who are you?')
-def transpile(source, header, target):
+def transpile(entry, target):
     """
     Example Usage
 
-        >>> lost-temple -o ./build   ./sources ./headers
+        >>> lost-temple -o ./build  .
 
     :return:
     """
 
-    res = lost_temple.transpile(source, header, target)
+    res = lost_temple.transpile(entry, target)
 
     click.echo(res)
 
