@@ -21,4 +21,3 @@ def transpile(entry, target):
     res = lost_temple.transpile(entry, target)
 
     click.echo(res)
-

@@ -6,6 +6,7 @@ import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
 
+
 def transpile(entry, target_path="./build"):
     """
 
@@ -143,6 +144,7 @@ def transpile_header(header_path, target_path):
     ]
 
     return ret
+
 
 def transpile_source(source_path, target_path):
     """

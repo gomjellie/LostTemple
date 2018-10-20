@@ -52,12 +52,12 @@ def get_tree(parent_path, file_extension):
     }
     """
 
-    ret = { }
+    ret = {}
 
     for root, dirs, files in os.walk(parent_path):
-        file_extension_satisfied_files = [os.path.join(root, file) for file in files if os.path.splitext(file)[1] == file_extension]
+        file_extension_satisfied_files = [os.path.join(root, file) for file in files if
+                                          os.path.splitext(file)[1] == file_extension]
         if file_extension_satisfied_files:
             ret["{}".format(root)] = file_extension_satisfied_files
 
     return ret
-
