@@ -18,4 +18,7 @@ def transpile(source, header, target):
 
     :return:
     """
-    lost_temple.transpile(source, header, target)
+    res = lost_temple.transpile(source, header, target)
+
+    click.echo(res)
+

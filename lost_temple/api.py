@@ -32,10 +32,16 @@ def transpile(header_path="./headers", source_path="./sources", target_path="./b
 
     :return:
     """
+
+    entry = read_entry()
+
+    if entry:
+        source_path = entry["source"]
+        header_path = entry["header"]
+        target_path = entry["target"]
+
     header_res = transpile_header(header_path, target_path)
     source_res = transpile_source(source_path, target_path)
-
-    print(read_entry())
 
     return {
         "header_res": header_res,
