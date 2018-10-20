@@ -1,5 +1,6 @@
 # LostTemple
-로템 2v2 초보만
+
+로템 2v2 초보만@@ c언어와 함께
 
 ![마스코트](DOCS/img/cat_wearing_hat.jpeg)
 
