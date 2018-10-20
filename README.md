@@ -60,7 +60,7 @@ sudo pip3 install lost_temple
     ],
     "header": [
         "./headers",
-        "./headers2",
+        "./headers2"
     ],
     "target": [
         "./build"
