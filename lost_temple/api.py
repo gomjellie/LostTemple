@@ -6,13 +6,11 @@ import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
 
-def transpile(source_path, header_path, target_path="./build"):
+def transpile(entry, target_path="./build"):
     """
 
-    :param header_path:
-    e.g.) "./headers"
-    :param source_path:
-    e.g.) "./sources"
+    :param entry:
+    e.g.) "./"
     :param target_path:
     e.g.) "./build"
 
@@ -36,33 +34,33 @@ def transpile(source_path, header_path, target_path="./build"):
     :return:
     """
 
-    entry = read_entry()
+    config = read_entry()
 
-    if entry:
-        source_path = entry["source"]
-        header_path = entry["header"]
-        target_path = entry["target"]
+    if config:
+        # .lost_temple 설정 파일이 있으면 설정 파일을 따른다.
+        target_path = config["target"]
+        entry = config["entry"]
 
     source_res = {}
     header_res = {}
 
-    if type(source_path) is str:
-        source_res[source_path] = transpile_source(source_path, target_path)
-    elif type(source_path) is list:
-        for s in source_path:
+    if type(entry) is str:
+        source_res[entry] = transpile_source(entry, target_path)
+    elif type(entry) is list:
+        for s in entry:
             source_res[s] = transpile_source(s, target_path)
     else:
         raise TypeError(
-            "transpile() got param source_path as type {} which expected [str, list]".format(type(source_path)))
+            "transpile() got param entry as type {} which expected [str, list]".format(type(entry)))
 
-    if type(header_path) is str:
-        header_res[header_path] = transpile_header(header_path, target_path)
-    elif type(header_path) is list:
-        for h in header_path:
+    if type(entry) is str:
+        header_res[entry] = transpile_header(entry, target_path)
+    elif type(entry) is list:
+        for h in entry:
             header_res[h] = transpile_header(h, target_path)
     else:
         raise TypeError(
-            "transpile() got param header_path as type {} which expected [str, list]".format(type(header_path)))
+            "transpile() got param entry as type {} which expected [str, list]".format(type(entry)))
 
     return {
         "header_res": header_res,
