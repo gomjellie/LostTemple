@@ -1,6 +1,8 @@
 # LostTemple
 로템 2v2 초보만
 
+![마스코트](DOCS/img/cat_wearing_hat.jpeg)
+
 ## 이게 뭐죠?
 
 LostTemple 은 C언어를 파이썬 처럼 쓰게 도와주는 트랜스파일러 입니다.
