@@ -11,7 +11,6 @@ LostTemple 은 C언어를 파이썬 처럼 쓰게 도와주는 트랜스파일�
 
 위의 사진처럼 다른언어에서도 파이썬처럼 { } 와 ; 없이 코드를 짜고 싶어집니다.
 
-
 ```c
 #include <stdio.h>
 
@@ -49,13 +48,16 @@ sudo pip3 install lost_temple
 
 설정파일 .lost_temple 을 working directory에 만드세요
 
+아래와 같은 구조를 가져야 합니다.
 ```json
 {
     "source": [
-        "./sources"
+        "./sources",
+        "./sources2"
     ],
     "header": [
-        "./headers/"
+        "./headers",
+        "./headers2",
     ],
     "target": [
         "./build"
@@ -77,8 +79,64 @@ lost-temple
 
 ```sh
 
-lost-temple --source="./sources" --header="./headers" target="./build"
+lost-temple -o ./build   ./sources ./headers
 
 ```
 
 와 같이 실행해야 합니다.
+
+```sh
+.
+├── headers
+│   └── actuator.hat
+├── headers2
+│   ├── protocol.hat
+│   └── sensor.hat
+├── sources
+│   ├── actuator.cat
+│   ├── protocol.cat
+│   ├── sensor.cat
+│   └── subdir
+│       ├── deep_directory
+│       │   └── deep.cat
+│       └── sub.cat
+└── sources2
+    └── actuator.cat
+```
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+```sh
+.
+├── build
+│   ├── headers
+│   │   └── actuator.h
+│   ├── headers2
+│   │   ├── protocol.h
+│   │   └── sensor.h
+│   ├── sources
+│   │   ├── actuator.c
+│   │   ├── protocol.c
+│   │   ├── sensor.c
+│   │   └── subdir
+│   │       ├── deep_directory
+│   │       │   └── deep.c
+│   │       └── sub.c
+│   └── sources2
+│       └── actuator.c
+├── headers
+│   └── actuator.hat
+├── headers2
+│   ├── protocol.hat
+│   └── sensor.hat
+├── sources
+│   ├── actuator.cat
+│   ├── protocol.cat
+│   ├── sensor.cat
+│   └── subdir
+│       ├── deep_directory
+│       │   └── deep.hat
+│       └── sub.cat
+└── sources2
+    └── actuator.cat
+```
