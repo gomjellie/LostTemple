@@ -2,6 +2,9 @@
     API HERE
 """
 from .utils import read_entry, get_tree
+import pprint
+
+pp = pprint.PrettyPrinter(indent=4)
 
 def transpile(header_path="./headers", source_path="./sources", target_path="./build"):
     """
@@ -40,10 +43,26 @@ def transpile(header_path="./headers", source_path="./sources", target_path="./b
         header_path = entry["header"]
         target_path = entry["target"]
 
-    return get_tree(source_path, ".c")
+    source_res = {}
+    header_res = {}
 
-    header_res = transpile_header(header_path, target_path)
-    source_res = transpile_source(source_path, target_path)
+    if type(source_path) is str:
+        source_res[source_path] = transpile_source(source_path, target_path)
+    elif type(source_path) is list:
+        for s in source_path:
+            source_res[s] = transpile_source(s, target_path)
+    else:
+        raise TypeError(
+            "transpile() got param source_path as type {} which expected [str, list]".format(type(source_path)))
+
+    if type(header_path) is str:
+        header_res[header_path] = transpile_header(header_path, target_path)
+    elif type(header_path) is list:
+        for h in header_path:
+            header_res[h] = transpile_header(h, target_path)
+    else:
+        raise TypeError(
+            "transpile() got param header_path as type {} which expected [str, list]".format(type(header_path)))
 
     return {
         "header_res": header_res,
@@ -55,10 +74,10 @@ def transpile_header(header_path, target_path):
     """
     path_name 안의 모든 .h 파일을 트랜스파일 합니다.
 
-    :param header_path: 헤더 경로이름
-    e.g.) ./headers/
+    :param header_path: 헤더 경로이름 list or string
+    e.g.) "./headers"
     :param target_path: 트랜스파일된 결과물이 이동할 위치
-    e.g.) ./build
+    e.g.) "./build"
 
     :result:
     e.g.)
@@ -95,6 +114,11 @@ def transpile_header(header_path, target_path):
         },
     ]
     """
+
+    print("header_path: {}".format(header_path))
+    header_tree = get_tree(header_path, ".h")
+    print("header_tree: ")
+    pp.pprint(header_tree)
 
     ret = [
         {
@@ -165,6 +189,11 @@ def transpile_source(source_path, target_path):
         },
     ]
     """
+
+    print("source_path: {}".format(source_path))
+    source_tree = get_tree(source_path, ".c")
+    print("source_tree: ")
+    pp.pprint(source_tree)
 
     ret = [
         {

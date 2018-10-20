@@ -14,7 +14,7 @@ def read_entry():
             "./sources"
         ],
         "header": [
-            "./headers/"
+            "./headers"
         ],
         "target": [
             "./build"
@@ -24,6 +24,7 @@ def read_entry():
     config_file = os.path.join(os.getcwd(), '.lost_temple')
 
     if not os.path.isfile(config_file):
+        print(".lost_temple not found")
         return None
 
     with open(config_file) as f:
@@ -51,11 +52,10 @@ def get_tree(parent_path, file_extension):
     }
     """
 
-    parent_path = parent_path[0]
     ret = { }
 
     for root, dirs, files in os.walk(parent_path):
-        ret["{}".format(root)] = ["{}/{}".format(root, file) for file in files if os.path.splitext(file)[1] == file_extension ]
+        ret["{}".format(root)] = [ os.path.join(root, file) for file in files if os.path.splitext(file)[1] == file_extension ]
 
     return ret
 
