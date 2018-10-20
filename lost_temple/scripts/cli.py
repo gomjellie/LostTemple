@@ -7,9 +7,9 @@ import lost_temple
 
 
 @click.command()
-@click.option("--source", "-s", default='./sources', multiple=True, help="path where .c files exits, default='./src'")
-@click.option("--header", "-h", default="./headers", multiple=True, help="where .h files exits, default='./headers'")
-@click.option("--target", "-t", default="./build", multiple=False, help="transpiled results will go here, default='./build'")
+@click.argument("source", nargs=1, default="./sources")
+@click.argument("header", nargs=1, default="./headers")
+@click.argument("target", nargs=1, default="./build")
 def transpile(source, header, target):
     """
     Example Usage
@@ -18,4 +18,7 @@ def transpile(source, header, target):
 
     :return:
     """
-    lost_temple.transpile(source, header, target)
+    res = lost_temple.transpile(source, header, target)
+
+    click.echo(res)
+

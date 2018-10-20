@@ -25,7 +25,7 @@ int main():
 LostTemple 을 사용하여 트랜스파일하면 아래와 같이 변합니다!
       ↓ ↓ ↓ ↓ ↓ ↓
 
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -51,15 +51,15 @@ sudo pip3 install lost_temple
 
 ```json
 {
-    "source": {
+    "source": [
         "./sources"
-    },
-    "header": {
+    ],
+    "header": [
         "./headers/"
-    },
-    "target": {
+    ],
+    "target": [
         "./build"
-    }
+    ]
 }
 ```
 
