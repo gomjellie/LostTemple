@@ -6,7 +6,7 @@ import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
 
-def transpile(header_path="./headers", source_path="./sources", target_path="./build"):
+def transpile(source_path, header_path, target_path="./build"):
     """
 
     :param header_path:
@@ -27,11 +27,11 @@ def transpile(header_path="./headers", source_path="./sources", target_path="./b
     │       ├── protocol.c
     │       └── sensor.c
     ├── headers
-    │   ├── protocol.h
-    │   └── sensor.h
+    │   ├── protocol.hat
+    │   └── sensor.hat
     └── sources
-        ├── protocol.c
-        └── sensor.c
+        ├── protocol.cat
+        └── sensor.cat
 
     :return:
     """
@@ -87,8 +87,8 @@ def transpile_header(header_path, target_path):
     │   │   ├── protocol.h
     │   │   └── sensor.h
     └── headers
-        ├── protocol.h
-        └── sensor.h
+        ├── protocol.hat
+        └── sensor.hat
 
     :return: [
         {
@@ -116,7 +116,7 @@ def transpile_header(header_path, target_path):
     """
 
     print("header_path: {}".format(header_path))
-    header_tree = get_tree(header_path, ".h")
+    header_tree = get_tree(header_path, ".hat")
     print("header_tree: ")
     pp.pprint(header_tree)
 
@@ -162,8 +162,8 @@ def transpile_source(source_path, target_path):
     │   │   ├── protocol.c
     │   │   └── sensor.c
     └── sources
-        ├── protocol.c
-        └── sensor.c
+        ├── protocol.cat
+        └── sensor.cat
 
     :return: [
         {
@@ -191,7 +191,7 @@ def transpile_source(source_path, target_path):
     """
 
     print("source_path: {}".format(source_path))
-    source_tree = get_tree(source_path, ".c")
+    source_tree = get_tree(source_path, ".cat")
     print("source_tree: ")
     pp.pprint(source_tree)
 

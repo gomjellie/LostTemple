@@ -46,9 +46,9 @@ def get_tree(parent_path, file_extension):
     :return:
     e.g.)
     {
-        './sources': ['./sources/protocol.c', './sources/sensor.c'],
-        './sources/p': ['./sources/p/p.c'],
-        './sources/p/k': []
+        './sources': ['./sources/protocol.cat', './sources/sensor.cat'],
+        './sources/subdir': ['./sources/subdir/sub.cat'],
+        './sources/subdir/deep_directory': []
     }
     """
 
