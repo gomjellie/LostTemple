@@ -14,16 +14,20 @@ describe('lost-temple', function(){
     it('check gugu.cat -> gugu.c', function(done){
         readFile("./example/gugu.cat")
             .then(lostTemple.cat2c)
-            .then((res) => { expect(res).to.equal(String(fs.readFileSync("./example/gugu.c")))})
-            .then(done())
+            .then((res) => {
+                expect(res).to.equal(String(fs.readFileSync("./example/gugu.c")));
+                done();
+            })
             .catch(console.error);
     });
 
     it('check helloWorld.cat -> helloWorld.c', function(done){
         readFile("./example/helloWorld.cat")
             .then(lostTemple.cat2c)
-            .then((res) => { expect(res).to.equal(String(fs.readFileSync("./example/helloWorld.c")))})
-            .then(done())
+            .then((res) => {
+                expect(res).to.equal(String(fs.readFileSync("./example/helloWorld.c")));
+                done();
+            })
             .catch(console.error);
     });
 });
