@@ -16,7 +16,7 @@ describe('lost-temple', function(){
             .then(lostTemple.cat2c)
             .then((res) => { expect(res).to.equal(String(fs.readFileSync("./example/gugu.c")))})
             .then(done())
-            .catch((err) => { throw err });
+            .catch(console.error);
     });
 
     it('check helloWorld.cat -> helloWorld.c', function(done){
