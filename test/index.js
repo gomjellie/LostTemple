@@ -11,17 +11,19 @@ const readFile = util.promisify(fs.readFile);
 describe('lost-temple', function(){
     const lostTemple = require('../lib');
 
-    it('check gugu.cat -> gugu.c', function(){
+    it('check gugu.cat -> gugu.c', function(done){
         readFile("./example/gugu.cat")
             .then(lostTemple.cat2c)
             .then((res) => { expect(res).to.equal(String(fs.readFileSync("./example/gugu.c")))})
-            .catch(console.log);
+            .then(done())
+            .catch((err) => { throw err });
     });
 
-    it('check helloWorld.cat -> helloWorld.c', function(){
+    it('check helloWorld.cat -> helloWorld.c', function(done){
         readFile("./example/helloWorld.cat")
             .then(lostTemple.cat2c)
             .then((res) => { expect(res).to.equal(String(fs.readFileSync("./example/helloWorld.c")))})
-            .catch(console.log);
+            .then(done())
+            .catch(console.error);
     });
 });
