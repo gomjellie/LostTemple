@@ -1,0 +1,33 @@
+{
+  "name": "lost-temple",
+  "version": "1.0.0",
+  "description": "lost-temple language to C language transpiler",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/index.js"
+  },
+  "bin": {
+    "lost": "./lib/cli/transpiler.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gomjellie/LostTemple.git"
+  },
+  "keywords": [
+    "lost",
+    "temple",
+    "c",
+    "python",
+    "transpiler"
+  ],
+  "author": "Oh Inkyu <gomjellie@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gomjellie/LostTemple/issues"
+  },
+  "homepage": "https://github.com/gomjellie/LostTemple#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.19.0"
+  }
+}
