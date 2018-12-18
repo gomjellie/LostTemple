@@ -18,9 +18,11 @@ LostTemple 은 C언어를 파이썬 처럼 쓰게 도와주는 트랜스파일�
 #include <stdio.h>
 
 int main():
-    printf("hello world")
+    for (int i = 0; i < 10; i++):
+        for (int j = 0; j < 10; j++):
+            print("%d times %d equals %d \n", i, j, i * j)
 
-    return false
+    return 0
 
 ```
 
@@ -31,10 +33,15 @@ LostTemple 을 사용하여 트랜스파일하면 아래와 같이 변합니다!
 #include <stdio.h>
 
 int main() {
-    printf("hello world");
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            printf("%d times %d equals %d \n", i, j, i * j);
+        }
+    }
 
     return 0;
 }
+
 ```
 
 와 같은 형식으로 변환 시킬 수 있습니다.
@@ -44,96 +51,19 @@ int main() {
 ### 설치
 
 ```
-sudo pip3 install lost_temple
-```
-
-### 설정 파일 만들기
-
-설정파일 .lost_temple 을 working directory에 만드세요
-
-아래와 같은 구조를 가져야 합니다.
-```json
-{
-    "entry": [
-        "./"
-    ],
-    "target": [
-        "./build"
-    ]
-}
+npm install lost-temple -g
 ```
 
 ### 트랜스파일 하기
 
-.lost_temple 설정 파일이 있다면 다음과 같이 간단하게 트랜스파일 할 수 있습니다
+아래의 3가지 방법으로 hello.cat 을 hello.c로 트랜스파일 할 수 있습니다.
 
 ```sh
 
-lost-temple
+lost hello.cat
 
-```
+lost hello.cat -o hello.c
 
-.lost_temple 설정 파일이 없다면
+lost hello.cat --output hello.c
 
-```sh
-
-# ./build에 .(현재 디렉토리) 부터 탐색한 .hat, .cat 파일들을 트랜스파일합니다.
-
-lost-temple -o ./build  .
-
-```
-
-와 같이 실행해야 합니다.
-
-```sh
-.
-├── headers
-│   └── actuator.hat
-├── headers2
-│   ├── protocol.hat
-│   └── sensor.hat
-├── sources
-│   ├── protocol.cat
-│   ├── sensor.cat
-│   └── subdir
-│       ├── deep_directory
-│       │   └── deep.cat
-│       └── sub.cat
-└── sources2
-    └── actuator.cat
-```
-
-      ↓ ↓ ↓ ↓ ↓ ↓
-
-```sh
-.
-├── build
-│   ├── headers
-│   │   └── actuator.h
-│   ├── headers2
-│   │   ├── protocol.h
-│   │   └── sensor.h
-│   ├── sources
-│   │   ├── protocol.c
-│   │   ├── sensor.c
-│   │   └── subdir
-│   │       ├── deep_directory
-│   │       │   └── deep.h
-│   │       └── sub.c
-│   └── sources2
-│       └── actuator.c
-├── headers
-│   └── actuator.hat
-├── headers2
-│   ├── protocol.hat
-│   └── sensor.hat
-├── sources
-│   ├── protocol.cat
-│   ├── sensor.cat
-│   └── subdir
-│       ├── deep_directory
-│       │   └── deep.cat
-│       └── sub.cat
-└── sources2
-    └── actuator.cat
 ```
