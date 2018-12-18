@@ -1,7 +1,7 @@
 {
   "name": "lost-temple",
-  "version": "1.0.0",
-  "description": "lost-temple language to C language transpiler",
+  "version": "1.0.1",
+  "description": "lost-temple is pythonic language that compiles to c language.",
   "main": "lib/index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha test/index.js"
