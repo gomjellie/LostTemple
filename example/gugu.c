@@ -6,4 +6,6 @@ int main() {
             printf("%d times %d is %d \n", i, j, i * j);
         }
     }
+    return 0;
 }
+
