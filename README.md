@@ -20,7 +20,7 @@ LostTemple 은 C언어를 파이썬 처럼 쓰게 도와주는 트랜스파일�
 int main():
     for (int i = 0; i < 10; i++):
         for (int j = 0; j < 10; j++):
-            print("%d times %d equals %d \n", i, j, i * j)
+            print("%d times %d is %d \n", i, j, i * j)
 
     return 0
 
@@ -35,7 +35,7 @@ LostTemple 을 사용하여 트랜스파일하면 아래와 같이 변합니다!
 int main() {
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
-            printf("%d times %d equals %d \n", i, j, i * j);
+            printf("%d times %d is %d \n", i, j, i * j);
         }
     }
 
