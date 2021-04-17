@@ -44,5 +44,16 @@ describe('lost-temple', function () {
 
     console.dir(transformed, { depth: null });
     done();
+  });
+
+  it("tests transfiler", function (done) {
+    const source = fs.readFileSync(`${__dirname}/sources/tokenizer.txt`).toString();
+    const tokens = lostTemple.tokenizer(source);
+    const ast = lostTemple.parser(tokens);
+    const transformed = lostTemple.transformer(ast);
+    const generatedCode = lostTemple.codeGenerator(transformed);
+
+    console.log(generatedCode);
+    done();
   })
 });
