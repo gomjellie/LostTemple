@@ -6,7 +6,6 @@ const expect = require("chai").expect;
 
 const fs = require("fs");
 const util = require('util');
-const readFile = util.promisify(fs.readFile);
 
 describe('lost-temple', function () {
   const lostTemple = require('../lib');
