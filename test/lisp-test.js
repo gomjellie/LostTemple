@@ -8,8 +8,8 @@ const fs = require("fs");
 exports.lispTest = () => describe('lisp', function () {
   const lostTemple = require('../lib');
 
-  it("tests tokenizer.txt tokenize", function (done) {
-    const source = fs.readFileSync(`${__dirname}/sources/tokenizer.txt`).toString();
+  it("tests lisp.txt tokenize", function (done) {
+    const source = fs.readFileSync(`${__dirname}/sources/lisp.txt`).toString();
     const tokens = lostTemple.tokenizer(source);
 
     expect(tokens).to.eql([
@@ -27,8 +27,8 @@ exports.lispTest = () => describe('lisp', function () {
     done();
   });
 
-  it("tests semantic parser with input tokenizer.txt", function (done) {
-    const source = fs.readFileSync(`${__dirname}/sources/tokenizer.txt`).toString();
+  it("tests semantic parser with input lisp.txt", function (done) {
+    const source = fs.readFileSync(`${__dirname}/sources/lisp.txt`).toString();
     const tokens = lostTemple.tokenizer(source);
     const ast = lostTemple.parser(tokens);
 
@@ -37,7 +37,7 @@ exports.lispTest = () => describe('lisp', function () {
   });
 
   it("tests transformer", function (done) {
-    const source = fs.readFileSync(`${__dirname}/sources/tokenizer.txt`).toString();
+    const source = fs.readFileSync(`${__dirname}/sources/lisp.txt`).toString();
     const tokens = lostTemple.tokenizer(source);
     const ast = lostTemple.parser(tokens);
     const transformed = lostTemple.transformer(ast);
@@ -47,7 +47,7 @@ exports.lispTest = () => describe('lisp', function () {
   });
 
   it("tests transfiler", function (done) {
-    const source = fs.readFileSync(`${__dirname}/sources/tokenizer.txt`).toString();
+    const source = fs.readFileSync(`${__dirname}/sources/lisp.txt`).toString();
     const tokens = lostTemple.tokenizer(source);
     const ast = lostTemple.parser(tokens);
     const transformed = lostTemple.transformer(ast);
