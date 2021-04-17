@@ -8,7 +8,7 @@ const fs = require("fs");
 describe('lost-temple', function () {
   const lostTemple = require('../lib');
 
-  it("check tokenizer.txt tokenize", function (done) {
+  it("tests tokenizer.txt tokenize", function (done) {
     const source = fs.readFileSync(`${__dirname}/sources/tokenizer.txt`).toString();
     const tokens = lostTemple.tokenizer(source);
 
@@ -23,6 +23,16 @@ describe('lost-temple', function () {
       { type: "paren", value: ")" },
       { type: "paren", value: ")" },
     ]);
+    console.dir(tokens, { depth: null });
     done();
   });
+
+  it("tests sementic parser with input tokenizer.txt", function (done) {
+    const source = fs.readFileSync(`${__dirname}/sources/tokenizer.txt`).toString();
+    const tokens = lostTemple.tokenizer(source);
+    const ast = lostTemple.parser(tokens);
+
+    console.dir(ast, { depth: null });
+    done();
+  })
 });
