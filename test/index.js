@@ -27,12 +27,22 @@ describe('lost-temple', function () {
     done();
   });
 
-  it("tests sementic parser with input tokenizer.txt", function (done) {
+  it("tests semantic parser with input tokenizer.txt", function (done) {
     const source = fs.readFileSync(`${__dirname}/sources/tokenizer.txt`).toString();
     const tokens = lostTemple.tokenizer(source);
     const ast = lostTemple.parser(tokens);
 
     console.dir(ast, { depth: null });
+    done();
+  });
+
+  it("tests transformer", function (done) {
+    const source = fs.readFileSync(`${__dirname}/sources/tokenizer.txt`).toString();
+    const tokens = lostTemple.tokenizer(source);
+    const ast = lostTemple.parser(tokens);
+    const transformed = lostTemple.transformer(ast);
+
+    console.dir(transformed, { depth: null });
     done();
   })
 });
