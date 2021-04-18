@@ -3,7 +3,7 @@
  */
 
 // const { lispTest } = require("./lisp-test");
-const { jsTest } = require("./js-test");
+const { tokenizTest, sementicTest } = require("./js-test");
 
-// lispTest();
-jsTest();
+// tokenizTest();
+sementicTest();
