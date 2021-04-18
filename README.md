@@ -1,6 +1,6 @@
 # LostTemple
 
-로템 2v2 초보만@@ c언어와 함께
+로템 2v2 초보만@@ js와 함께
 
 ![마스코트](DOCS/img/cat_wearing_hat.jpeg)
 
@@ -38,13 +38,19 @@ for (let i = 0; i < 10; i++)               {
 
 ### 설치
 
-```
+```sh
 npm install lost-temple -g
+```
+
+### TEST
+
+```sh
+npm run test
 ```
 
 ### 트랜스파일 하기
 
-아래의 3가지 방법으로 hello.js를 트랜스파일 할 수 있습니다.
+아래의 3가지 방법으로 hello.js를 트랜스파일 할 수 있습니다. (미완)
 
 ```sh
 
